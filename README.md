@@ -169,7 +169,7 @@ flowchart LR
     A[Low-D samples] --> B[Random embedding]
     B --> C[High-D samples]
     C --> D[Evaluate BBOB]
-    D --> E[ELA (full dataset)]
+    D --> E["ELA (full dataset)"]
 
     C --> F[Split into slices]
     F --> G[ELA per slice]
