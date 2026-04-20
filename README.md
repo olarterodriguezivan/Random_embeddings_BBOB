@@ -10,7 +10,7 @@ A scalable, end-to-end pipeline for:
 - Sampling continuous search spaces  
 - Evaluating **BBOB benchmark functions**  
 - Extracting **ELA (Exploratory Landscape Analysis)** features  
-- Studying **dimensionality reduction effects**  
+- Studying **compression ratio effects** on sampling on random subspaces  
 - Building large datasets efficiently (parallel + chunked)
 
 ---
