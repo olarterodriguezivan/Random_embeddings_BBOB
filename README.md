@@ -54,6 +54,7 @@ flowchart LR
 ```
 
 # Installation
+Just run the following line in *bash*:
 ```
 python3 -m pip install -r requirements.txt
 ```
