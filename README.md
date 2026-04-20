@@ -188,12 +188,11 @@ sampling_outputs_20D_10D/
 ```
 
 #### Meaning
-```
 | File         | Description                  |
 | ------------ | ---------------------------- |
 | `full.csv`   | ELA features on all samples  |
 | `slice*.csv` | ELA features per low-D slice |
-```
+
 
 
 
