@@ -104,3 +104,28 @@ bbob_evaluations/
 ```
 The script `y_sampling.py` has predefined to evaluate the 24 functions from the BBOB and the first 15 instances of each function.
 
+### Extract ELA features
+Run:
+```
+python ela_sampling.py
+```
+
+Therein you have to indicate the directories with the samples and the corresponding evaluations.
+
+Then the output is the following:
+```
+ela_features/
+  reduction/
+    Dimension_20/
+      seed_42/
+        Samples_1000/
+          f_1/
+            id_0/
+              ela_features.csv
+```
+
+Each file contains:
+```
+feature_1, feature_2, ..., feature_n
+```
+
