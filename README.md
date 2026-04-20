@@ -52,3 +52,8 @@ flowchart LR
 │
 └── data/                                # Outputs (generated)
 ```
+
+# Installation
+```
+python3 -m pip install -r requirements.txt
+```
