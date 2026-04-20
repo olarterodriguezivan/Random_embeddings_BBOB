@@ -141,3 +141,10 @@ complete_data_generated.csv
 complete_data_generated.parquet
 ```
 
+Final dataset includes:
+- dimension
+- seed
+- n_samples
+- function_idx
+- instance_idx
+- source_file
