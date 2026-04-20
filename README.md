@@ -175,4 +175,25 @@ flowchart LR
     F --> G[ELA per slice]
 ```
 
+### Output Structure
+By running either one of the aforementioned scripts, then the following structure will be generated. This is the renderization of the flowchart explained above.
+```
+sampling_outputs_20D_10D/
+  f1/
+    iid_0/
+      group0/
+        full.csv
+        slice1.csv
+        slice2.csv
+```
+
+#### Meaning
+```
+| File         | Description                  |
+| ------------ | ---------------------------- |
+| `full.csv`   | ELA features on all samples  |
+| `slice*.csv` | ELA features per low-D slice |
+```
+
+
 
