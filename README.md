@@ -31,6 +31,7 @@ flowchart LR
     end
 
     E --> F --> G --> H
+```
 
 # Project Structure
 ```
