@@ -5,3 +5,4 @@ scikit-learn>=1.2.2
 matplotlib>=3.10.8
 pflacco>=1.2.2
 ioh>=0.3.18
+pyarrow>=22.0.0
