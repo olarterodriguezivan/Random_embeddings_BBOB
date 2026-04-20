@@ -58,3 +58,18 @@ Just run the following line in *bash*:
 ```
 python3 -m pip install -r requirements.txt
 ```
+
+# Usage (End-to-End)
+## Generate Samples for Full-Space Sampling on BBOB
+The following is an example to use any Quasi-Monte-Carlo sampling. Currently, the code allows to use `halton`, `sobol` or `lhs` to generate points to be then passed to one of the BBOB functions and get function evaluations for ulterior assessment.
+
+### Example
+```
+python doe_sampling.py \
+    --dim 20 \
+    --n 1000 \
+    --sampler lhs \
+    --seed 42 \
+    --out samples.csv
+
+```
