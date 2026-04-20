@@ -73,3 +73,14 @@ python doe_sampling.py \
     --out samples.csv
 
 ```
+
+### Output
+As an output, a folder is generated with the corresponding dimension, number of samples $n$, the utilized qmc-sampler, the random seed set as in:
+```
+x_samples/
+  reduction/
+    Dimension_20/
+      seed_42/
+        Samples_1000/
+          samples.csv
+```
