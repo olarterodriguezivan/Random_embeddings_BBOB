@@ -19,11 +19,11 @@ A scalable, end-to-end pipeline for:
 
 ```mermaid
 flowchart LR
-    A[Sample X] --> B[Evaluate f(X) on BBOB]
+    A[Sample X] --> B["Evaluate f(X) on BBOB"]
     B --> C[Extract ELA Features]
     C --> D[Aggregate Dataset]
 
-    subgraph Advanced (Reduction Pipeline)
+    subgraph Advanced ["Reduction Pipeline"]
         E[Sample in low dimension d]
         F[Project to high dimension D]
         G[Evaluate BBOB]
