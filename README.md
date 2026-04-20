@@ -129,3 +129,15 @@ Each file contains:
 feature_1, feature_2, ..., feature_n
 ```
 
+### Building Final Dataset
+Run:
+```
+python parallel_loader.py
+```
+
+The latter script generates the files:
+```
+complete_data_generated.csv
+complete_data_generated.parquet
+```
+
