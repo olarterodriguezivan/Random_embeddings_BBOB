@@ -32,7 +32,6 @@ flowchart LR
 
     E --> F --> G --> H
 ```
-
 # Project Structure
 .
 ├── doe_sampling.py                      # Generate X samples
@@ -50,3 +49,4 @@ flowchart LR
 │   └── Parallel loading of many CSV files
 │
 └── data/                                # Outputs (generated)
+```
