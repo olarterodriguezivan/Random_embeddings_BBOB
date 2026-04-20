@@ -1,131 +1,52 @@
-# BBOB Data Generation Pipeline
+# 🚀 BBOB Sampling & ELA Feature Extraction Pipeline
 
-This repository implements a **three-step pipeline** for generating, processing, and using datasets derived from **BBOB (Black-Box Optimization Benchmark) functions**.
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![Status](https://img.shields.io/badge/status-research--prototype-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Data](https://img.shields.io/badge/data-large--scale-critical)
 
-This README currently documents **Step 1**, which is responsible for **data generation via Design of Experiments (DoE)**.  
-Steps 2 and 3 will build on the data generated here.
+A scalable, end-to-end pipeline for:
 
----
-
-## Step 1 — Data Generation (`doe_sampling.py`)
-
-The first step of the pipeline samples BBOB benchmark functions using different DoE strategies and logs the resulting datasets to disk.
-
-This step is implemented in `doe_sampling.py`
-
----
-
-## Purpose
-
-`doe_sampling.py` generates datasets by:
-
-1. Selecting a BBOB function (problem ID, dimension, instance),
-2. Sampling points in the decision space using a chosen DoE method,
-3. Scaling samples to the true BBOB bounds,
-4. Evaluating the BBOB function at those points,
-5. Logging inputs and function values using IOH's `Analyzer`.
-
-The script is designed to be executed from the command line and produces structured, reproducible datasets.
+- 📊 Sampling continuous search spaces  
+- 🎯 Evaluating **BBOB benchmark functions**  
+- 🧠 Extracting **ELA (Exploratory Landscape Analysis)** features  
+- 📉 Studying **dimensionality reduction effects**  
+- ⚡ Building large datasets efficiently (parallel + chunked)
 
 ---
 
-## Dependencies
+# 🧭 Full Pipeline Overview
 
-The following Python packages are required:
+```mermaid
+flowchart LR
+    A[Sample X] --> B[Evaluate f(X) on BBOB]
+    B --> C[Extract ELA Features]
+    C --> D[Aggregate Dataset]
 
-- `numpy`
-- `scipy`
-- `ioh`
-- `pflacco`
-- `scikit-learn`
+    subgraph Advanced (Reduction Pipeline)
+        E[Sample in low dimension d]
+        F[Project to high dimension D]
+        G[Evaluate BBOB]
+        H[ELA on full + slices]
+    end
 
-Install them with:
-```
-pip install numpy scipy ioh pflacco scikit-learn
+    E --> F --> G --> H
 ```
 
----
-
-## Basic Usage
-
-Run the sampler from the repository root:
-```
-python sampler.py [OPTIONS]
-```
-
-Minimal example:
-```
-python sampler.py --problem-id 1 --dimension 5 --sampler lhs
-```
-
-This command:
-- Selects **BBOB problem 1**
-- Uses **5 dimensions**
-- Applies **Latin Hypercube Sampling**
-- Generates `dimension × multiplier` samples
-
----
-
-## Command-Line Arguments
-
-### BBOB Problem Configuration
-
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `--problem-id` | BBOB function ID (1–24) | `1` |
-| `--dimension` | Problem dimensionality | `2` |
-| `--instance` | BBOB instance ID (1–15) | `1` |
-
----
-
-### Sampling Configuration
-
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `--sampler` | Sampling method: `monte-carlo`, `lhs`, `sobol`, `halton` | `lhs` |
-| `--multiplier` | Number of samples = `dimension × multiplier` | `25` |
-| `--random-seed` | Random seed for reproducibility | `42` |
-
----
-
-### Sampler-Specific Options
-
-These options affect LHS, Sobol, and Halton samplers.
-
-| Argument | Description | Default |
-|----------|-------------|---------|
-| `--quasi-random-criterion` | Optimization criterion (`random-cd`, `lloyd`) | `random-cd` |
-| `--lhs-strength` | Strength of LHS design (1 or 2) | `1` |
-
-**Note:**  
-Sobol sampling automatically rounds the number of samples **up to the nearest power of two**, as required by the Sobol sequence construction.
-
----
-
-## Supported Sampling Methods
-
-- **Monte Carlo**  
-  Uniform random sampling over the unit hypercube.
-
-- **Latin Hypercube Sampling (LHS)**  
-  Stratified sampling using `scipy.stats.qmc.LatinHypercube`, with optional optimization.
-
-- **Sobol Sequences**  
-  Low-discrepancy quasi-random sequences with scrambling and optimization.
-
-- **Halton Sequences**  
-  Deterministic low-discrepancy sequences with optional scrambling.
-
-All sampling methods initially generate points in `[0, 1]^d`, which are then scaled to the BBOB problem bounds.
-
----
-
-## Output Structure
-
-Results are logged automatically using IOH's `Analyzer`.
-
-The output directory structure is:
-```
-data/
-└── <problem_id>/
-```
+# Project Structure
+.
+├── doe_sampling.py                      # Generate X samples
+├── y_sampling.py                        # Evaluate BBOB functions
+├── ela_sampling.py                      # Extract ELA features
+├── sampler.py                           # Alternative IOH-based sampling
+│
+├── slicing_sampling_test_parallel.py
+├── slicing_all_in_sampling_test_parallel.py
+│   └── Low-D → High-D sampling + parallel ELA
+│
+├── parallel_loader.py                   # Build final dataset (chunked)
+├── parallel_loader_slices.py
+├── parallel_loader_slices_all_in.py
+│   └── Parallel loading of many CSV files
+│
+└── data/                                # Outputs (generated)
