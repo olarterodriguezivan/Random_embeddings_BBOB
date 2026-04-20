@@ -23,7 +23,7 @@ flowchart LR
     B --> C[Extract ELA Features]
     C --> D[Aggregate Dataset]
 
-    subgraph Advanced ["Reduction Pipeline"]
+    subgraph Advanced ["Sampling on Subspaces Pipeline"]
         E[Sample in low dimension d]
         F[Project to high dimension D]
         G[Evaluate BBOB]
