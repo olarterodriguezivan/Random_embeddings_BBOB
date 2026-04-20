@@ -148,3 +148,13 @@ Final dataset includes:
 - function_idx
 - instance_idx
 - source_file
+
+## Sampling on subspaces
+Run:
+
+```
+python slicing_sampling_test_parallel.py
+python slicing_all_in_sampling_test_parallel.py
+```
+
+
