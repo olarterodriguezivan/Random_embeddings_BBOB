@@ -1,4 +1,4 @@
-# 🚀 BBOB Sampling & ELA Feature Extraction Pipeline
+# BBOB Sampling & ELA Feature Extraction Pipeline
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![Status](https://img.shields.io/badge/status-research--prototype-orange)
@@ -7,15 +7,15 @@
 
 A scalable, end-to-end pipeline for:
 
-- 📊 Sampling continuous search spaces  
-- 🎯 Evaluating **BBOB benchmark functions**  
-- 🧠 Extracting **ELA (Exploratory Landscape Analysis)** features  
-- 📉 Studying **dimensionality reduction effects**  
-- ⚡ Building large datasets efficiently (parallel + chunked)
+- Sampling continuous search spaces  
+- Evaluating **BBOB benchmark functions**  
+- Extracting **ELA (Exploratory Landscape Analysis)** features  
+- Studying **dimensionality reduction effects**  
+- Building large datasets efficiently (parallel + chunked)
 
 ---
 
-# 🧭 Full Pipeline Overview
+# Full Pipeline Overview
 
 ```mermaid
 flowchart LR
