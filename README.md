@@ -150,11 +150,29 @@ Final dataset includes:
 - source_file
 
 ## Sampling on subspaces
+### Initial Sampling
 Run:
 
 ```
 python slicing_sampling_test_parallel.py
+```
+Or:
+```
 python slicing_all_in_sampling_test_parallel.py
+```
+
+The distinction between the first and the second one is the point density allocation as in the second all points are evaluated in one defined subspace, whereas the first one splits point density into multiple subspaces or "slices".
+
+### What Happens?
+```mermaid
+flowchart LR
+    A[Low-D samples] --> B[Random embedding]
+    B --> C[High-D samples]
+    C --> D[Evaluate BBOB]
+    D --> E[ELA (full dataset)]
+
+    C --> F[Split into slices]
+    F --> G[ELA per slice]
 ```
 
 
