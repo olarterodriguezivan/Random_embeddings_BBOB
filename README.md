@@ -7,17 +7,17 @@ Steps 2 and 3 will build on the data generated here.
 
 ---
 
-## Step 1 — Data Generation (`sampler.py`)
+## Step 1 — Data Generation (`doe_sampling.py`)
 
 The first step of the pipeline samples BBOB benchmark functions using different DoE strategies and logs the resulting datasets to disk.
 
-This step is implemented in `sampler.py`
+This step is implemented in `doe_sampling.py`
 
 ---
 
 ## Purpose
 
-`sampler.py` generates datasets by:
+`doe_sampling.py` generates datasets by:
 
 1. Selecting a BBOB function (problem ID, dimension, instance),
 2. Sampling points in the decision space using a chosen DoE method,
