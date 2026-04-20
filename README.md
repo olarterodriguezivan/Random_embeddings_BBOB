@@ -193,6 +193,73 @@ sampling_outputs_20D_10D/
 | `full.csv`   | ELA features on all samples  |
 | `slice*.csv` | ELA features per low-D slice |
 
+### Data Formats (Unified)
+X Samples
+```
+x1, x2, ..., xd
+```
+Function Evaluations
+```
+fX
+```
+ELA Features
+```
+feature_1, feature_2, ..., feature_n
+```
+
+### Final Dataset (Aggregated)
+
+Includes:
+- Features
+- Metadata
+- File origin
+- Core Concepts:
+- Sampling Methods (Latin Hypercube (LHS), Sobol, Halton, Monte Carlo)
+- ELA Features (via pflacco) (Meta features, Distribution features ,Level sets, Nearest Better Clustering (NBC), Dispersion, Information content, PCA, Fitness-distance correlation
+- Projection Strategy (Sample in low dimension (d) --> Embed into high dimension (D) --> Evaluate in high-D
+
+### Details
+- Analyze landscape structure via ELA
+- Performance Features
+- Parallel processing (multiprocessing)
+- Chunked data loading
+- Memory-safe streaming
+- Parquet output (fast + compressed)
+- Handles millions of CSV files
+
+### Important Notes
+- Sobol sampling requires n = 2^k
+- ELA level features require enough samples
+- File paths encode metadata → do not change structure
+- Use Parquet for large datasets
+
+### Customization
+
+You can modify:
+- Sampling method (get_sampler)
+- Dimensions (D, d)
+- Number of groups / slices
+- Enabled ELA features
+
+#### Use Cases
+- Optimization landscape analysis
+- Meta-learning dataset generation
+- Benchmarking optimization algorithms
+- Studying dimensionality reduction effects
+
+### Summary
+
+This repository provides a complete, scalable pipeline for:
+
+✔ Sampling & benchmarking
+✔ ELA feature extraction
+✔ High-dimensional analysis
+✔ Large-scale dataset construction
+
+📜 License
+
+MIT License
+
 
 
 
