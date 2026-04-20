@@ -1,0 +1,7 @@
+numpy>=1.24.4
+pandas>=2.0.3
+scipy>=1.10.0
+scikit-learn>=1.2.2
+matplotlib>=3.10.8
+pflacco>=1.2.2
+ioh>=0.3.18
