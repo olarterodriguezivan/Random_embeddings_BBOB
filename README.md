@@ -84,3 +84,23 @@ x_samples/
         Samples_1000/
           samples.csv
 ```
+
+## Evaluation of BBOB Functions
+Run:
+```
+python y_sampling.py
+```
+
+Where you need to open the file and select the folder with the already generated samples. By running the script correctly, then the following directories will be generated:
+```
+bbob_evaluations/
+  reduction/
+    Dimension_20/
+      seed_42/
+        Samples_1000/
+          f_1/
+            id_0/
+              evaluations.csv
+```
+The script `y_sampling.py` has predefined to evaluate the 24 functions from the BBOB and the first 15 instances of each function.
+
