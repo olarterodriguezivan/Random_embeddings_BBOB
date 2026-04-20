@@ -33,6 +33,7 @@ flowchart LR
     E --> F --> G --> H
 ```
 # Project Structure
+```
 .
 ├── doe_sampling.py                      # Generate X samples
 ├── y_sampling.py                        # Evaluate BBOB functions
